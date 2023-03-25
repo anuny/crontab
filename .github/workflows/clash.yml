@@ -1,4 +1,4 @@
-name: Main
+name: Auto update
 
 on:
   schedule:
