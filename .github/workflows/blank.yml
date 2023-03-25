@@ -11,6 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: Run a one-line script
+      
+      - name: download
         run: wget -O config.yaml https://feed.iggapis.net/c/303e862c-3286-4d71-a139-f4918e479aad/platform/clash/iGG-iGuge
+      
+      - name: Commit
+        run: |
+          git add config.yaml
+          git commit -m "[$(LANG=C date)] auto update" || exit 0
+          [ -n "${{ secrets.READ_ONLY }}" ] && git show && exit 0
+          git push origin master
