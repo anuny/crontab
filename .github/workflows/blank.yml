@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: download
         run: wget -O config.yaml https://feed.iggapis.net/c/303e862c-3286-4d71-a139-f4918e479aad/platform/clash/iGG-iGuge
