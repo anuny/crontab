@@ -18,6 +18,5 @@ jobs:
       - name: Commit
         run: |
           git add config.yaml
-          git commit -m "[$(LANG=C date)] auto update" || exit 0
-          [ -n "${{ secrets.READ_ONLY }}" ] && git show && exit 0
+          git commit -m "[$(LANG=C date) auto update"
           git push origin master
